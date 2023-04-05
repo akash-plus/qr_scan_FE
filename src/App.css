@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -22,6 +27,10 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.benefits_calculator_component {
+  width: 400;
 }
 
 .App-link {

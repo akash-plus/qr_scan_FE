@@ -1,0 +1,94 @@
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  size: 40;
+  background-color: white;
+  padding: 20px;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.hr {
+  padding: 0;
+  margin: 0;
+  border: 0 none;
+}
+
+.brand_names {
+  font-size: 24px;
+  font-weight: 900;
+  color: black;
+}
+
+.header-wrapper > div {
+  display: flex;
+  align-items: center;
+}
+
+.header-wrapper > div:first-child {
+  margin-right: 20px;
+}
+
+.scheme-name {
+  font-weight: bold;
+  font-size: 24px;
+  margin-right: 20px;
+  color: black;
+}
+
+
+.hero {
+  position: relative;
+  width: 100vw;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  background-color: black;
+}
+  
+.visit-link {
+  color: #ffffff;
+  text-underline-position: under;
+  text-decoration:underline;
+  font-size: 24px;
+}
+
+.visit-link:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+  .header-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 10px;
+  }
+
+  .header-wrapper > div:first-child {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+.hero-content {
+  position: relative; 
+  font-family: "Monserrat", sans-serif;
+  color: white;
+  text-align: center;
+  margin: 0.625rem;
+}
+.hero-title {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 0;
+    color: white;
+}
+.hero-subtitle {
+    font-size: 2rem;
+    font-weight: 200;
+    margin-top: 1rem;
+}
+  

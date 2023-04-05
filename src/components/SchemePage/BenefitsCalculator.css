@@ -1,0 +1,190 @@
+/* Responsive container */
+.benefits-calculator {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border-color: 1px black;
+  background-color: #f1f1f1;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  width: 200;
+}
+
+/* Slider1 styles */
+.slider1 {
+  margin-bottom: 20px;
+}
+
+.slider-label {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.slider-subtext {
+  font-size: 14px;
+  display: block;
+  margin-top: 5px;
+}
+
+.slider-value {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+#amount {
+  color: black;
+}
+
+.slider {
+  width: 80%;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 5px;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  /* background-color: #c1c3f1;  */
+  background-color: #f9d554;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background-color: #fae69e;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.slider-range {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight:400;
+}
+
+.slider-max {
+  margin-left: 15px;
+}
+
+/* Slider2 styles */
+.slider2 {
+  margin-bottom: 20px;
+}
+
+.slider-value {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.slider-range {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* Interest styles */
+.interest {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.interest span {
+  font-size: 28px;
+  font-weight: bold;
+  color: black;
+}
+
+/* Purchase plan styles */
+.purchase-plan {
+  margin-bottom: 20px;
+}
+
+.purchase-plan-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.you-pay {
+font-weight: bold;
+}
+
+.you-buy-jewellery-for {
+font-weight: bold;
+text-align: right;
+}
+
+.you-buy-jewellery-for-subtext {
+font-size: 14px;
+display: block;
+}
+
+.you-pay-value {
+font-size: 28px;
+font-weight: bold;
+color: black;
+}
+
+.you-buy-jewellery-for-value {
+font-size: 28px;
+font-weight: bold;
+}
+
+/* Input styles */
+.input-container {
+display: flex;
+flex-direction: column;
+margin-bottom: 20px;
+}
+
+.input {
+    margin: 20;
+padding: 10px;
+border-radius: 5px;
+border: none;
+margin-bottom: 10px;
+/* box-shadow: 0 0 10px rgba(250, 230, 158, 0.5); */
+transition: box-shadow 0.2s ease-in-out;
+}
+
+.input:focus {
+outline: none;
+/* box-shadow: 0 0 10px rgba(250, 230, 158, 1); */
+}
+
+/* Button styles */
+.button {
+width: calc(100% - 40px);
+padding: 10px;
+background-color: #fae69e;
+border: none;
+border-radius: 5px;
+font-size: 18px;
+font-weight: bold;
+color: #927201;
+cursor: pointer;
+transition: background-color 0.2s ease-in-out;
+}
+
+.button:hover {
+background-color: #fff6d8;
+}
+
+/* Divider styles */
+.divider {
+height: 1px;
+background-color: black;
+margin: 20px 0;
+}

@@ -1,0 +1,44 @@
+{
+    "Name": "Akash",
+    "UId": "1234567890",
+    "Scheme": "Gold",
+    "Payments_remaining": 5,
+    "transactions": [
+      {
+        "transaction_id": "1",
+        "date": "2022-01-01",
+        "status": "Complete",
+        "mode_of_payment": "Credit Card",
+        "benefits_accrued": "100"
+      },
+      {
+        "transaction_id": "2",
+        "date": "2022-02-01",
+        "status": "Pending",
+        "mode_of_payment": "Debit Card",
+        "benefits_accrued": "50"
+      },
+      {
+        "transaction_id": "3",
+        "date": "2022-03-01",
+        "status": "Complete",
+        "mode_of_payment": "Net Banking",
+        "benefits_accrued": "75"
+      },
+      {
+        "transaction_id": "4",
+        "date": "2022-04-01",
+        "status": "Failed",
+        "mode_of_payment": "UPI",
+        "benefits_accrued": "0"
+      },
+      {
+        "transaction_id": "5",
+        "date": "2022-05-01",
+        "status": "Complete",
+        "mode_of_payment": "Cash",
+        "benefits_accrued": "120"
+      }
+    ]
+  }
+  
