@@ -31,10 +31,10 @@
 }
 
 .scheme-name {
-  font-weight: bold;
-  font-size: 24px;
+  font-weight: 250;
+  font-size: 1.5em;
   margin-right: 20px;
-  color: black;
+  color: #6a6a6a;
 }
 
 
@@ -50,7 +50,7 @@
 }
   
 .visit-link {
-  color: #ffffff;
+  color: black;
   text-underline-position: under;
   text-decoration:underline;
   font-size: 24px;

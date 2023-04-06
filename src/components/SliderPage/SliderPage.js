@@ -1,8 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import './SchemePage.css';
+import './SliderPage.css';
+import BenefitsCalculator from './BenefitsCalculator';
 
-const SchemePage = () => {
+const SliderPage = () => {
+  console.log("Minimum scheme amount" + sessionStorage.getItem('minAmount'));
+  console.log("Plan duration" + sessionStorage.getItem('duration_of_plan'));
+  console.log(sessionStorage.getItem('first_installment_discount'));
+  const minSchemeAmount = sessionStorage.getItem('minAmount');
+  const durationOfPlan = sessionStorage.getItem('duration_of_plan');
+  const firstInstallmentDiscount = sessionStorage.getItem('first_installment_discount');
+  const lastInstallmentDiscount = sessionStorage.getItem('last_installment_discount');
+  
+
   return (
     <div>
         <header className="header-wrapper">
@@ -27,13 +37,21 @@ const SchemePage = () => {
             </h2>
             </div>
         </section>
+        <h1>Benefits Calculator</h1>
+        <BenefitsCalculator 
+          minSchemeAmount={minSchemeAmount}
+          durationOfPlan = {durationOfPlan}
+          firstInstallmentDiscount = {firstInstallmentDiscount}
+          lastInstallmentDiscount = {lastInstallmentDiscount}
+        />
         <body>
             <div className=''>
 
             </div>
         </body>
+        
     </div>
   )
 }
 
-export default SchemePage
+export default SliderPage

@@ -1,0 +1,10 @@
+.container {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  h1 {
+    font-size: 6rem;
+  }
+  

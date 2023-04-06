@@ -5,11 +5,25 @@ import data from './data.json';
 const Passbook = () => {
   return (
     <div className="passbook-container">
-      <header>
+      {/* <header>
         <div className="brand-name">Plus</div>
         <div className="passbook-heading">Passbook</div>
         <div className="user-name">Hi, {data.Name}</div>
+      </header> */}
+
+      <header className="header-wrapper">
+        <div>
+          <span className='brand_names'>PLUS</span>
+        </div>
+        <div>
+          <span className="scheme-name">Passbook</span>
+          {/* <Link className="visit-link" to="https://google.com" target='_blank'>
+            Visit xyz website
+          </Link> */}
+          <a className='visit-link' href='https://google.com' target='_blank' rel='noreferrer'>Visit the Jeweller Website</a>
+        </div>
       </header>
+      <hr />
       <div className="passbook-details">
         <div className="user-details">
           <div className="user-key">Name:</div>
@@ -19,9 +33,9 @@ const Passbook = () => {
           <div className="user-key">Scheme:</div>
           <div className="user-value">{data.Scheme}</div>
           <div className="user-key">Payments remaining:</div>
-          <div className="user-value">{data.Payments_remaining}</div>     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          <div className="user-value">{data.Payments_remaining}</div>     
         </div>
-        <hr className="divider" />
+        {/* <hr className="divider" /> */}
         <table className="transaction-table">
           <thead>
             <tr>
