@@ -23,8 +23,6 @@ function RegisterPage() {
   const auth_amount = sessionStorage.getItem('auth_amount');
   console.log("Entered the register page: ");
   console.log("Chosen plan id on the Register page is :" + sessionStorage.getItem('chosen_plan_id'));
-  
- 
 
   const [formValues, setFormValues] = useState({
     user: {
@@ -103,6 +101,30 @@ function RegisterPage() {
     // navigate('/complete-kyc');
   };
 
+  const handleLater = async () => {
+    setIsProcessing(true);
+
+    const apiURL = 'https://sapi.getplus.in/api/v1/payment/';
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    };
+
+    try {
+      const response = await fetch(apiURL, requestOptions);
+      const data = await response.json();
+
+      if (data.message && data.message.status === 'OK') {
+        setAuthLink(data.message.authLink);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    } finally {
+      setIsProcessing(false);
+    }
+  };
+
   const planId = sessionStorage.getItem("chosen_plan_id");
   const customerEmail = sessionStorage.getItem("customer_email");
   const customerPhone = sessionStorage.getItem("customer_phone");
@@ -140,30 +162,7 @@ function RegisterPage() {
   //   });
   // };
 
-  const handleLater = async () => {
-    setIsProcessing(true);
-
-    // Replace with your actual API URL and request parameters.
-    const apiURL = 'https://sapi.getplus.in/api/v1/payment/';
-    const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
-    };
-
-    try {
-      const response = await fetch(apiURL, requestOptions);
-      const data = await response.json();
-
-      if (data.message && data.message.status === 'OK') {
-        setAuthLink(data.message.authLink);
-      }
-    } catch (error) {
-      console.error('Error:', error);
-    } finally {
-      setIsProcessing(false);
-    }
-  };
+  
 
   useEffect(() => {
     if (authLink) {
@@ -183,39 +182,19 @@ function RegisterPage() {
           <h1>
             <span 
               class="brand_names" 
-              // style="color: #FFDF00;
-              // font-size: 36px;
-              // font-weight: bold;"
               >+
             </span>Plus | <span class="brand_names2" 
-            // style="
-            // color: #10E000;
-            // font-size: 29px;
-            // font-weight: 300;"
+           
           >Your Logo </span>
           </h1>
         </div>
         <div>
-          {/* <span className='brand_names'>PLUS | JEWELSHOP </span> */}
         </div>
         <div>
           <span className="scheme-name">Register</span>
-          {/* <Link className="visit-link" to="https://google.com" target='_blank'>
-            Visit xyz website
-          </Link> */}
+         
           <a className='visit-link' href='#'  rel='noreferrer' 
-          // style=
-          // "font-family: var(--font-primary);
-          //   font-weight: 500;
-          //   font-size: 15px;
-          //   letter-spacing: 1px;
-          //   display: inline-block;
-          //   padding: 14px 40px;
-          //   border-radius: 50px;
-          //   transition: 0.3s;
-          //   color: #fff;
-          //   background: rgb(11 142 0 / 90%);
-          //   text-decoration: none;"
+          
         >Help & Support</a>
         </div>
       </header>
@@ -284,6 +263,7 @@ function RegisterPage() {
           </div>
         </div>
       )} */}
+
     </div>
   );
 }
