@@ -12,7 +12,6 @@ const SliderPage = () => {
   const firstInstallmentDiscount = sessionStorage.getItem('first_installment_discount');
   const lastInstallmentDiscount = sessionStorage.getItem('last_installment_discount');
   
-
   return (
     <div>
         <header className="header-wrapper">

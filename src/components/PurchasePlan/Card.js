@@ -16,7 +16,6 @@ const Card = ({ item }) => {
         console.log("Plan duration" + sessionStorage.getItem('duration_of_plan'));
         console.log(sessionStorage.getItem('first_installment_discount'));
     
-        
         navigate("/savings-slider")
     };
 
@@ -34,5 +33,3 @@ const Card = ({ item }) => {
 };
 
 export default Card
-
-

@@ -39,6 +39,8 @@ const PassbookPage = () => {
   //   console.log("First transaction data");
   //   console.log(parsedUserData[0]);
   // }
+
+  
   
   return (
     <div className="passbook-container">

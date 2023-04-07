@@ -9,7 +9,6 @@ const PurchasePlan = () => {
       async function fetchData() {
           try {
               const response = await fetch('https://sapi.getplus.in/api/v1/schemes/SmithLLC/');
-              
               const result = await response.json();
               // const arrayData = Object.values(result);
               // console.log(arrayData[0]);
@@ -46,7 +45,7 @@ const PurchasePlan = () => {
   // }, [data]);
 
   return (
-    <div className="app">
+    <div >
       <header className="header-wrapper">
         <div>
           <span className='brand_names'>PLUS | JEWELSHOP </span>
