@@ -26,6 +26,7 @@ const BenefitsCalculator = ({minSchemeAmount, durationOfPlan, firstInstallmentDi
   sessionStorage.setItem('auth_amount', JSON.stringify(amount));
   const auth_amount = sessionStorage.getItem('auth_amount');
   console.log("auth_amount in benefits calculator "  + auth_amount);
+  console.log("Chosen plan id on the benefits calculator page is :" + sessionStorage.getItem('chosen_plan_id'));
 
   // Logging the selected values to console on button click
   const handleButtonClick = () => {

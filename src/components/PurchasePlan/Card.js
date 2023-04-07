@@ -10,7 +10,8 @@ const Card = ({ item }) => {
         sessionStorage.setItem('minAmount', JSON.stringify(item.minimum_installment_amount));
         sessionStorage.setItem('first_installment_discount', JSON.stringify(item.discount_on_first_installment));
         sessionStorage.setItem('last_installment_discount', JSON.stringify(item.discount_on_last_installement));
-        sessionStorage.setItem('chosen_plan_id', JSON.stringify(item.plan_id));
+        sessionStorage.setItem('chosen_plan_id', item.plan_id);
+        console.log("Chosen plan id on the card page is :" + sessionStorage.getItem('chosen_plan_id'));
         console.log("Minimum scheme amount" + sessionStorage.getItem('minAmount'));
         console.log("Plan duration" + sessionStorage.getItem('duration_of_plan'));
         console.log(sessionStorage.getItem('first_installment_discount'));

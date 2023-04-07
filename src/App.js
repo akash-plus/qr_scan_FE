@@ -9,7 +9,8 @@ import PurchasePlan from './components/PurchasePlan/PurchasePlan';
 import RegisterPage from './components/RegisterPage/RegisterPage';
 import SliderPage from './components/SliderPage/SliderPage';
 import PaymentPage from './components/PaymentPage/PaymentPage';
-import Passbook from './components/Passbook/Passbook';
+import Passbook from './components/Passbook/PassbookPage';
+import PassbookLogin from './components/Passbook/PassbookLogin';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Route path='/savings-slider' element={<SliderPage />}/>
       <Route path='/make-payment' element={<PaymentPage />}/>
       <Route path='/user-passbook' element={<Passbook />}/>
+      <Route path='/passbook-login' element={<PassbookLogin />}/>
     </Routes>
 
   )

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./RegisterPage.css";
 
@@ -16,9 +16,14 @@ function RegisterPage() {
   const firstInstallmentDiscount = sessionStorage.getItem('first_installment_discount');
   const lastInstallmentDiscount = sessionStorage.getItem('last_installment_discount');
 
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [authLink, setAuthLink] = useState(null);
+
   const plan_id = sessionStorage.getItem('chosen_plan_id');
   const auth_amount = sessionStorage.getItem('auth_amount');
-  console.log();
+  console.log("Entered the register page: ");
+  console.log("Chosen plan id on the Register page is :" + sessionStorage.getItem('chosen_plan_id'));
+  
  
 
   const [formValues, setFormValues] = useState({
@@ -52,9 +57,9 @@ function RegisterPage() {
     console.log(selectedDate);
   };
 
-  console.log("Minimum scheme amount" + sessionStorage.getItem('minAmount'));
-        console.log("Plan duration" + sessionStorage.getItem('duration_of_plan'));
-        console.log(sessionStorage.getItem('first_installment_discount'));
+  // console.log("Minimum scheme amount" + sessionStorage.getItem('minAmount'));
+  //       console.log("Plan duration" + sessionStorage.getItem('duration_of_plan'));
+  //       console.log(sessionStorage.getItem('first_installment_discount'));
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -87,6 +92,7 @@ function RegisterPage() {
 
     if (response.status === 201) {
       console.log("User created");
+      console.log(response.body);
       // navigate('/make-payment');
     } else {
       console.error('Error submitting form', response.body);
@@ -96,12 +102,15 @@ function RegisterPage() {
     navigate('/complete-kyc');
   };
 
-  const planId = sessionStorage.getItem("plan_id");
+  const planId = sessionStorage.getItem("chosen_plan_id");
   const customerEmail = sessionStorage.getItem("customer_email");
   const customerPhone = sessionStorage.getItem("customer_phone");
-  const authAmount = sessionStorage.getItem("auth_amount");
+  const authAmountString = sessionStorage.getItem("auth_amount");
+  const authAmount = parseFloat(authAmountString);
 
- 
+  console.log("Type of authAmount here is ");
+  console.log(typeof authAmount);
+  console.log(authAmount);
 
   const data = {
     "plan_id": planId,
@@ -110,24 +119,58 @@ function RegisterPage() {
     "auth_amount": authAmount
   };
 
-  const handleLater = () => {
-    // navigate('/make-payment');
-    fetch("https://sapi.getplus.in/api/v1/payment/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data)
-    })
-    .then(response => {
-      console.log(response);
-    })
-    .catch(error => {
-      console.log(error);
-    });
+  console.log("This is the object being sent to the payment API");
+  console.log(data);
+
+  // const handleLater = () => {
+  //   // navigate('/make-payment');
+  //   fetch("https://sapi.getplus.in/api/v1/payment/", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(data)
+  //   })
+  //   .then(response => {
+  //     console.log(response);
+  //   })
+  //   .catch(error => {
+  //     console.log(error);
+  //   });
+  // };
+
+  const handleLater = async () => {
+    setIsProcessing(true);
+
+    // Replace with your actual API URL and request parameters.
+    const apiURL = 'https://sapi.getplus.in/api/v1/payment/';
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    };
+
+    try {
+      const response = await fetch(apiURL, requestOptions);
+      const data = await response.json();
+
+      if (data.message && data.message.status === 'OK') {
+        setAuthLink(data.message.authLink);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    } finally {
+      setIsProcessing(false);
+    }
   };
 
-  console.log("planId " + sessionStorage.getItem("plan_id"));
+  useEffect(() => {
+    if (authLink) {
+      window.location.href = authLink;
+    }
+  }, [authLink]);
+
+  console.log("planId " + sessionStorage.getItem("chosen_plan_id"));
     console.log("customerEmail " + sessionStorage.getItem("customer_email"));
     console.log("customerPhone " + sessionStorage.getItem("customer_phone"));
     console.log("authAmount " + sessionStorage.getItem("auth_amount"));

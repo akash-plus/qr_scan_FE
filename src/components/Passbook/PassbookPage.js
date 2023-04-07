@@ -1,8 +1,16 @@
 import React from 'react';
-import './Passbook.css';
+import './PassbookPage.css';
 import data from './data.json';
 
-const Passbook = () => {
+const PassbookPage = () => {
+  const userData = sessionStorage.getItem("PassbookData");
+  if (userData) {
+    const parsedUserData = JSON.parse(userData);
+    console.log("This is the user data");
+    console.log(parsedUserData);
+    console.log("First transaction data");
+    console.log(parsedUserData[0]);
+  }
   return (
     <div className="passbook-container">
       {/* <header>
@@ -23,7 +31,7 @@ const Passbook = () => {
           <a className='visit-link' href='https://google.com' target='_blank' rel='noreferrer'>Visit the Jeweller Website</a>
         </div>
       </header>
-      <hr />
+      {/* <hr /> */}
       <div className="passbook-details">
         <div className="user-details">
           <div className="user-key">Name:</div>
@@ -63,4 +71,4 @@ const Passbook = () => {
   );
 };
 
-export default Passbook;
+export default PassbookPage;
