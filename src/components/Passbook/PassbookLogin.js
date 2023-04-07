@@ -33,6 +33,10 @@ const PassbookLogin = () => {
     customer_otp: otp
   }
 
+  sessionStorage.setItem("customer_phone", JSON.stringify(phone));
+  sessionStorage.setItem("customer_otp", JSON.stringify(otp));
+
+
   const login = async () => {
     // Make a POST request to the server to verify OTP and login
     // Replace the URL with the actual API endpoint

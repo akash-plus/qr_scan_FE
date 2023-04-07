@@ -1,24 +1,47 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './PassbookPage.css';
-import data from './data.json';
+// import data from './data.json';
 
 const PassbookPage = () => {
-  const userData = sessionStorage.getItem("PassbookData");
-  if (userData) {
+  
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const userData = sessionStorage.getItem("PassbookData");
     const parsedUserData = JSON.parse(userData);
-    console.log("This is the user data");
-    console.log(parsedUserData);
-    console.log("First transaction data");
-    console.log(parsedUserData[0]);
-  }
+    setData(parsedUserData);
+  }, [])
+  // const phone = sessionStorage.getItem('customer_phone');
+  // const otp = sessionStorage.getItem('customer_otp');
+
+  // const loginVerify = {
+  //   customer_phone: phone,
+  //   customer_otp: otp
+  // }
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const response = await fetch('https://sapi.getplus.in/api/v1/passbook/', {
+  //       method: 'POST',
+  //       headers: { 'Content-Type': 'application/json' },
+  //       body: JSON.stringify(loginVerify)
+  //     });
+  //     const data = await response.json();
+  //     setData(data);
+  //   };
+  //   fetchData();
+  // }, []);
+  // if (userData) {
+  //   const parsedUserData = JSON.parse(userData);
+  //   setData(parsedUserData);
+  //   console.log("This is the user data");
+  //   console.log(parsedUserData);
+  //   console.log("First transaction data");
+  //   console.log(parsedUserData[0]);
+  // }
+  
   return (
     <div className="passbook-container">
-      {/* <header>
-        <div className="brand-name">Plus</div>
-        <div className="passbook-heading">Passbook</div>
-        <div className="user-name">Hi, {data.Name}</div>
-      </header> */}
-
       <header className="header-wrapper">
         <div>
           <span className='brand_names'>PLUS</span>
@@ -51,17 +74,17 @@ const PassbookPage = () => {
               <th>Date</th>
               <th>Status</th>
               <th>Mode of Payment</th>
-              <th>Benefits Accrued</th>
+              <th>Amount</th>
             </tr>
           </thead>
           <tbody>
-            {data.transactions.map((transaction) => (
+            {data && data.map((transaction) => (
               <tr key={transaction.transaction_id}>
                 <td>{transaction.transaction_id}</td>
                 <td>{transaction.date}</td>
                 <td>{transaction.status}</td>
                 <td>{transaction.mode_of_payment}</td>
-                <td>{transaction.benefits_accrued}</td>
+                <td>{transaction.amount}</td>
               </tr>
             ))}
           </tbody>
