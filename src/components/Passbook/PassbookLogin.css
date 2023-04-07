@@ -1,3 +1,33 @@
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  size: 40;
+  background-color: white;
+  padding: 20px;
+  font-family: 'Helvetica Neue', sans-serif;
+  
+}
+
+.brand_names {
+  /* font-size: 24px;
+  font-weight: 900;     // old ones
+  color: black; */
+
+  color: #FFDF00;
+  font-size: 36px;
+  font-weight: bold;
+
+}
+
+.brand_names2 {
+  color: #10E000;
+  font-size: 29px;
+  font-weight: 300;
+}
+
 .login-form-container {
     display: flex;
     flex-direction: column;

@@ -59,6 +59,48 @@ const PassbookLogin = () => {
   };
 
   return (
+    <div>
+      <header className="header-wrapper">
+        <div>
+          <h1>
+            <span 
+              class="brand_names" 
+              // style="color: #FFDF00;
+              // font-size: 36px;
+              // font-weight: bold;"
+              >+
+            </span>Plus | <span class="brand_names2" 
+            // style="
+            // color: #10E000;
+            // font-size: 29px;
+            // font-weight: 300;"
+          >Your Logo </span>
+          </h1>
+        </div>
+        <div>
+          {/* <span className='brand_names'>PLUS | JEWELSHOP </span> */}
+        </div>
+        <div>
+          <span className="scheme-name">Passbook Login</span>
+          {/* <Link className="visit-link" to="https://google.com" target='_blank'>
+            Visit xyz website
+          </Link> */}
+          <a className='visit-link' href='#'  rel='noreferrer' 
+          // style=
+          // "font-family: var(--font-primary);
+          //   font-weight: 500;
+          //   font-size: 15px;
+          //   letter-spacing: 1px;
+          //   display: inline-block;
+          //   padding: 14px 40px;
+          //   border-radius: 50px;
+          //   transition: 0.3s;
+          //   color: #fff;
+          //   background: rgb(11 142 0 / 90%);
+          //   text-decoration: none;"
+        >Help & Support</a>
+        </div>
+      </header>
     <div className="login-form-container">
       <h2>Login</h2>
       <form className="login-form">
@@ -86,6 +128,7 @@ const PassbookLogin = () => {
           {otpSent ? 'Log In' : 'Get OTP'}
         </button>
       </form>
+    </div>
     </div>
   );
 };

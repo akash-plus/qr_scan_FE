@@ -9,7 +9,6 @@
   background-color: white;
   padding: 20px;
   font-family: 'Helvetica Neue', sans-serif;
-  
 }
 
 .header-wrapper > div {
@@ -28,9 +27,20 @@
 }
 
 .brand_names {
-  font-size: 24px;
-  font-weight: 900;
-  color: black;
+  /* font-size: 24px;
+  font-weight: 900;     // old ones
+  color: black; */
+
+  color: #FFDF00;
+  font-size: 36px;
+  font-weight: bold;
+
+}
+
+.brand_names2 {
+  color: #10E000;
+  font-size: 29px;
+  font-weight: 300;
 }
 
 .scheme-name {
@@ -41,11 +51,26 @@
 }
 
 .visit-link {
-  color: black;
+  /* color: black;
   text-underline-position: under;
-  text-decoration:underline;
-  font-size: 24px;
+  text-decoration:underline;  // old ones
+  font-size: 24px; */
+
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 14px 40px;
+  border-radius: 50px;
+  transition: 0.3s;
+  color: #fff;
+  background: rgb(11 142 0 / 90%);
+  text-decoration: none;
 }
+
+
+
 
 .app {
   margin: 0 auto;
@@ -76,6 +101,8 @@ h1 {
   padding: 20px;
   text-align: center;
   width: 40vw;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .card h2 {

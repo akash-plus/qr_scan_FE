@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 
 const Card = ({ item }) => {
     const navigate = useNavigate();
+    item.plan_duration = parseInt(item.plan_duration);
+
 
     const saveToStorage = () => {
         const duration_of_plan = item.is_custom ? item.custom_plan_duration : item.plan_duration;

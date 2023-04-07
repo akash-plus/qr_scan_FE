@@ -8,7 +8,7 @@ function RegisterPage() {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState("");
   const [dob, setDob] = useState('');
-  const [showPopup, setShowPopup] = useState(false);
+  // const [showPopup, setShowPopup] = useState(false);
 
   const minSchemeAmount = sessionStorage.getItem('minAmount');
   const perMonthInstallment = sessionStorage.getItem('per_month_installment');
@@ -80,7 +80,7 @@ function RegisterPage() {
      sessionStorage.setItem('customer_name', formValues.user.username);
     sessionStorage.setItem('customer_email', formValues.user.email);
      sessionStorage.setItem('customer_phone', formValues.phone_number);
-    setShowPopup(true);
+    // setShowPopup(true);
 
     const response = await fetch('https://sapi.getplus.in/api/v1/profile/create', {
       method: 'POST',
@@ -97,9 +97,10 @@ function RegisterPage() {
     } else {
       console.error('Error submitting form', response.body);
     }
+    handleLater();
   };
   const handleCompleteNow = () => {
-    navigate('/complete-kyc');
+    // navigate('/complete-kyc');
   };
 
   const planId = sessionStorage.getItem("chosen_plan_id");
@@ -177,10 +178,46 @@ function RegisterPage() {
 
   return (
     <div>
-      <header className="header">
-        <div className="header-item">PLUS | JEWELSHOP</div>
-        <div className="header-item">Register</div>
-        <div className="header-item">Visit Jeweller Website</div>
+      <header className="header-wrapper">
+        <div>
+          <h1>
+            <span 
+              class="brand_names" 
+              // style="color: #FFDF00;
+              // font-size: 36px;
+              // font-weight: bold;"
+              >+
+            </span>Plus | <span class="brand_names2" 
+            // style="
+            // color: #10E000;
+            // font-size: 29px;
+            // font-weight: 300;"
+          >Your Logo </span>
+          </h1>
+        </div>
+        <div>
+          {/* <span className='brand_names'>PLUS | JEWELSHOP </span> */}
+        </div>
+        <div>
+          <span className="scheme-name">Register</span>
+          {/* <Link className="visit-link" to="https://google.com" target='_blank'>
+            Visit xyz website
+          </Link> */}
+          <a className='visit-link' href='#'  rel='noreferrer' 
+          // style=
+          // "font-family: var(--font-primary);
+          //   font-weight: 500;
+          //   font-size: 15px;
+          //   letter-spacing: 1px;
+          //   display: inline-block;
+          //   padding: 14px 40px;
+          //   border-radius: 50px;
+          //   transition: 0.3s;
+          //   color: #fff;
+          //   background: rgb(11 142 0 / 90%);
+          //   text-decoration: none;"
+        >Help & Support</a>
+        </div>
       </header>
       <div className="padding"></div>
       <div className="form-container">
@@ -234,7 +271,7 @@ function RegisterPage() {
           </button>
         </form>
       </div>
-      {showPopup && (
+      {/* {showPopup && (
         <div className="popup">
           <p className="popup-text">Want to complete KYC now?</p>
           <div className="popup-buttons">
@@ -246,7 +283,7 @@ function RegisterPage() {
             </button>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 }

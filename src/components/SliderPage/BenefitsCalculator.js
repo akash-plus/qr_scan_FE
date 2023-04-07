@@ -5,9 +5,11 @@ import "./BenefitsCalculator.css";
 const BenefitsCalculator = ({minSchemeAmount, durationOfPlan, firstInstallmentDiscount, lastInstallmentDiscount }) => {
   const navigate = useNavigate();
 
+  console.log("chosen plan duration is " + durationOfPlan);
+
   // State variables for slider1 and slider2 values
   const [amount, setAmount] = useState(minSchemeAmount);
-  const [tenure, setTenure] = useState(3);
+  const [tenure, setTenure] = useState(durationOfPlan);
 
   // Interest rate calculation based on selected tenure
   const interestRate =
