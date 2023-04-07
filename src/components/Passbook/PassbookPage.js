@@ -41,6 +41,9 @@ const PassbookPage = () => {
   // }
 
   
+
+
+  
   
   return (
     <div className="passbook-container">
@@ -85,17 +88,19 @@ const PassbookPage = () => {
         >Help & Support</a>
         </div>
       </header>
-      {/* <hr /> */}
+      {/* <hr /> */} 
       <div className="passbook-details">
         <div className="user-details">
-          <div className="user-key">Name:</div>
-          <div className="user-value">{data.Name}</div>
-          <div className="user-key">UId:</div>
+          <div className="user-key">Profile Number:</div>
+          {/* <div className="user-value">{data && data[0].profile__phone_number}</div> */}
+          <div className="user-key">Profile Email:</div>
+          {/* <div className="user-value">{data && data[0].profile__user__email}</div> */}
+          {/* <div className="user-key">UId:</div>
           <div className="user-value">{data.UId}</div>
           <div className="user-key">Scheme:</div>
-          <div className="user-value">{data.Scheme}</div>
-          <div className="user-key">Payments remaining:</div>
-          <div className="user-value">{data.Payments_remaining}</div>     
+          <div className="user-value">{data.Scheme}</div> */}
+          {/* <div className="user-key">Payments remaining:</div>
+          <div className="user-value">{data.Payments_remaining}</div>      */}
         </div>
         {/* <hr className="divider" /> */}
         <table className="transaction-table">
@@ -105,17 +110,17 @@ const PassbookPage = () => {
               <th>Date</th>
               <th>Status</th>
               <th>Mode of Payment</th>
-              <th>Amount</th>
+              {/* <th>Amount</th> */}
             </tr>
           </thead>
           <tbody>
             {data && data.map((transaction) => (
               <tr key={transaction.transaction_id}>
                 <td>{transaction.transaction_id}</td>
-                <td>{transaction.date}</td>
+                <td>2023-04-07</td>
                 <td>{transaction.status}</td>
-                <td>UPI</td>
-                <td>{transaction.amount}</td>
+                <td>Online</td>
+                {/* <td>{transaction.amount}</td> */}
               </tr>
             ))}
           </tbody>

@@ -23,7 +23,7 @@ const Card = ({ item }) => {
 
     return (
         <div className="card" onClick={saveToStorage}>
-          <div>Plan</div>
+            <div>Plan</div>
             <h2>{item.title}</h2>
             <p>{item.description}</p>
             <p>Plan Duration : { item.is_custom ? item.custom_plan_duration : item.plan_duration}</p>
