@@ -8,6 +8,7 @@ function RegisterPage() {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState("");
   const [dob, setDob] = useState('');
+  
   // const [showPopup, setShowPopup] = useState(false);
 
   const minSchemeAmount = sessionStorage.getItem('minAmount');
@@ -75,9 +76,9 @@ function RegisterPage() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-     sessionStorage.setItem('customer_name', formValues.user.username);
+    sessionStorage.setItem('customer_name', formValues.user.username);
     sessionStorage.setItem('customer_email', formValues.user.email);
-     sessionStorage.setItem('customer_phone', formValues.phone_number);
+    sessionStorage.setItem('customer_phone', formValues.phone_number);
     // setShowPopup(true);
 
     const response = await fetch('https://sapi.getplus.in/api/v1/profile/create', {
@@ -95,7 +96,7 @@ function RegisterPage() {
     } else {
       console.error('Error submitting form', response.body);
     }
-    await handleLater();
+    handleLater();
   };
   const handleCompleteNow = () => {
     // navigate('/complete-kyc');
@@ -126,8 +127,8 @@ function RegisterPage() {
   };
 
   const planId = sessionStorage.getItem("chosen_plan_id");
-  const customerEmail = formValues.user.email;
-  const customerPhone = formValues.phone_number;
+  const customerEmail = sessionStorage.getItem("customer_email");
+  const customerPhone = sessionStorage.getItem("customer_phone");
   const authAmountString = sessionStorage.getItem("auth_amount");
   const authAmount = parseFloat(authAmountString);
 

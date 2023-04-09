@@ -1,6 +1,6 @@
 $bg-color: #E6E5E1;
 $shdow-gray: #d3d3d5;
-$orange: #DA4D1D;
+$orange: #dac11d;
 $blue: #2b26c3;
 $img-url: "https://images.unsplash.com/photo-1525543907410-b2562b6796d6?ixlib=rb-0.3.5&s=9ff8e5e718a6a40cbd0e1471235912f4&auto=format&fit=crop&w=3452&q=80";
 $img-url2: "https://images.unsplash.com/photo-1528785198459-ec50485704c7?ixlib=rb-0.3.5&s=3a2fc3039516555bbb2e9cd2967bd321&auto=format&fit=crop&w=1537&q=80";
@@ -26,6 +26,10 @@ h2{
   pointer-events:none;
 }
 
+.space_btw_cards {
+  height: 50px;
+}
+
 body {
   background-color: $bg-color;
   width: 100vw;
@@ -42,9 +46,10 @@ body {
 
   .card {
     position: relative;
-    width: 500px;
+    width: 40vh;
     height: 200px;
     background-color: #fff;
+    margin-top: 50px;
     overflow: hidden;
     margin-bottom: 4px;
 
@@ -109,7 +114,7 @@ body {
       z-index: 99;
       position: absolute;
       top: 20px;
-      right: 70px;
+      right: 60px;
       color: #333;
       opacity: 0.7;
       font-size: 12px;
