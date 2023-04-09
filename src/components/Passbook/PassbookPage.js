@@ -64,7 +64,8 @@ const PassbookPage = () => {
             {data && data.map((transaction) => (
               <tr key={transaction.transaction_id}>
                 <td>{transaction.transaction_id}</td>
-                <td>2023-04-07</td>
+                {/* <td>2023-04-07</td> */}
+                <td>{transaction.created_at}</td>
                 <td>{transaction.status}</td>
                 <td>Online</td>
                 {/* <td>{transaction.amount}</td> */}

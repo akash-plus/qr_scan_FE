@@ -75,94 +75,61 @@ function RegisterPage() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-     sessionStorage.setItem('customer_name', formValues.user.username);
+    sessionStorage.setItem('customer_name', formValues.user.username);
     sessionStorage.setItem('customer_email', formValues.user.email);
-     sessionStorage.setItem('customer_phone', formValues.phone_number);
-    // setShowPopup(true);
-
-    const response = await fetch('https://sapi.getplus.in/api/v1/profile/create', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formValues),
-    });
-
-    if (response.status === 201) {
-      console.log("User created");
-      console.log(response.body);
-      // navigate('/make-payment');
-    } else {
-      console.error('Error submitting form', response.body);
-    }
-    await handleLater();
-  };
-  const handleCompleteNow = () => {
-    // navigate('/complete-kyc');
-  };
-
-  const handleLater = async () => {
+    sessionStorage.setItem('customer_phone', formValues.phone_number);
     setIsProcessing(true);
-
-    const apiURL = 'https://sapi.getplus.in/api/v1/payment/';
-    const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
-    };
-
+  
     try {
-      const response = await fetch(apiURL, requestOptions);
-      const data = await response.json();
-
-      if (data.message && data.message.status === 'OK') {
-        setAuthLink(data.message.authLink);
+      const response = await fetch('https://sapi.getplus.in/api/v1/profile/create', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formValues),
+      });
+  
+      if (response.status === 201) {
+        console.log("User created");
+        console.log(response.body);
+  
+        const planId = sessionStorage.getItem("chosen_plan_id");
+        const customerEmail = formValues.user.email;
+        const customerPhone = formValues.phone_number;
+        const authAmountString = sessionStorage.getItem("auth_amount");
+        const authAmount = parseFloat(authAmountString);
+  
+        const data = {
+          "plan_id": planId,
+          "customer_email": customerEmail,
+          "customer_phone": customerPhone,
+          "auth_amount": authAmount
+        };
+  
+        const paymentResponse = await fetch('https://sapi.getplus.in/api/v1/payment/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+  
+        const paymentData = await paymentResponse.json();
+  
+        if (paymentData.message && paymentData.message.status === 'OK') {
+          setAuthLink(paymentData.message.authLink);
+        } else {
+          console.error('Error submitting payment form', paymentData.message);
+        }
+      } else {
+        console.error('Error submitting form', response.body);
       }
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Error submitting form', error);
     } finally {
       setIsProcessing(false);
     }
   };
-
-  const planId = sessionStorage.getItem("chosen_plan_id");
-  const customerEmail = formValues.user.email;
-  const customerPhone = formValues.phone_number;
-  const authAmountString = sessionStorage.getItem("auth_amount");
-  const authAmount = parseFloat(authAmountString);
-
-  console.log("Type of authAmount here is ");
-  console.log(typeof authAmount);
-  console.log(authAmount);
-
-  const data = {
-    "plan_id": planId,
-    "customer_email": customerEmail,
-    "customer_phone": customerPhone,
-    "auth_amount": authAmount
-  };
-
-  console.log("This is the object being sent to the payment API");
-  console.log(data);
-
-  // const handleLater = () => {
-  //   // navigate('/make-payment');
-  //   fetch("https://sapi.getplus.in/api/v1/payment/", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(data)
-  //   })
-  //   .then(response => {
-  //     console.log(response);
-  //   })
-  //   .catch(error => {
-  //     console.log(error);
-  //   });
-  // };
-
-  
 
   useEffect(() => {
     if (authLink) {
@@ -246,7 +213,7 @@ function RegisterPage() {
             />
           </div> */}
           <button type="submit" className="continue-button">
-            Continue
+          {isProcessing ? 'Loading...' : 'Continue'}
           </button>
         </form>
       </div>
