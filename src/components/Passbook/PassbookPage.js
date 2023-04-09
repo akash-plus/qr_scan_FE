@@ -46,7 +46,7 @@ const PassbookPage = () => {
       <div className="passbook-details">
         <div className="user-details">
           <div className="user-key">Profile Number:</div>
-          <div className="user-value">{data && data[0].profile__phone_number}</div>
+          {/* <div className="user-value">{data && data[0].profile__phone_number}</div> */}
           <div className="user-key">Profile Email:</div>
         </div>
         {/* <hr className="divider" /> */}
